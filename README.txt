@@ -1,0 +1,2 @@
+docker run -d -p 80:80 --name="snipeit" --link snipe-mysql:mysql --env-file=my_env_file.env --restart=always --mount source=snipe_data,dst=/var/lib/snipeit snipe/snipe-it
+docker run --name snipe-mysql --env-file=my_env_file.env --mount source=snipeit_db,target=/var/lib/mysql -d -P mariadb
